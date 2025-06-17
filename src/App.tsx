@@ -1,16 +1,91 @@
 import React, { useState } from 'react';
 import { FileText, Save, Download, Plus, Trash2, Calendar, User, MapPin, Settings, CheckCircle, XCircle, AlertTriangle, Minus, List } from 'lucide-react';
 
-interface InspectionItem {
-  id: string;
-  parameter: string;
-  inspectionDate: string;
-  executor: string;
-  conforme: boolean;
-  rnc: boolean;
-  naoConforme: boolean;
-  naoAplicavel: boolean;
-  desvio: boolean;
+interface InspectionItem { /* ... */ }
+interface DeviationItem { /* ... */ }
+interface DocumentData { /* ... */ }
+const predefinedParameters = [ /* ... */ ];
+const defaultInspectionItems: InspectionItem[] = [ /* ... */ ];
+
+function App() {
+  const [documentData, setDocumentData] = useState<DocumentData>({
+    obra: '',
+    cCusto: '',
+    encarregadoObra: '',
+    equipamento: '',
+    local: '',
+    especificacaoServico: '',
+    itensIT: '',
+    metodoAvaliacao: '',
+    criterioReprovacao: '',
+    periodoInspecao: '',
+    maquinasEquipamentos: '',
+    outros: '',
+    inspectionItems: defaultInspectionItems,
+    deviations: [],
+    resultadoInspecao: 'aprovado',
+    observacaoResultado: '',
+    responsavelInspecao: '',
+    responsavelObra: '',
+    responsavelSGQ: ''
+  });
+  const [activeTab, setActiveTab] = useState<'info' | 'inspection' | 'deviations' | 'result'>('info');
+  const [showParameterModal, setShowParameterModal] = useState(false);
+
+  // ... outras funções de manipulação de estado aqui ...
+
+  // Função de exportação via servidor Flask
+  const exportDocument = async () => {
+    try {
+      const response = await fetch('http://10.10.2.114:5000/export-pdf');
+      if (!response.ok) throw new Error('Erro ao gerar PDF');
+      const blob = await response.blob();
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `RIPP_${documentData.obra || 'documento'}_${new Date().toISOString().slice(0,10)}.pdf`;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      window.URL.revokeObjectURL(url);
+    } catch (err) {
+      console.error(err);
+      alert('Falha ao exportar PDF.');
+    }
+  };
+
+  const getCurrentDate = () => new Date().toISOString().split('T')[0];
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
+      {/* Header */}
+      <header className="bg-white shadow-lg border-b-4 border-blue-600">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-20">
+          <div className="flex items-center space-x-4">
+            <img src="/Logo CONIN em design minimalista.png" alt="CONIN Logo" className="h-12 w-auto" />
+            <div>
+              <h1 className="text-2xl font-bold text-gray-900">Sistema RIPP</h1>
+              <p className="text-sm text-gray-600">Relatório de Inspeção no Processo / Plano de Inspeção</p>
+            </div>
+          </div>
+          <div className="flex items-center space-x-3">
+            <button
+              onClick={exportDocument}
+              className="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
+            >
+              <Download className="w-4 h-4 mr-2" /> Exportar
+            </button>
+            <button className="inline-flex items-center px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300">
+              <Save className="w-4 h-4 mr-2" /> Salvar
+            </button>
+          </div>
+        </div>
+      </header>
+
+      {/* Navigation Tabs */}
+      {/* ... restante do layout e funcionalidades já existentes ... */}
+    </div>
+  );
 }
 
 interface DeviationItem {
