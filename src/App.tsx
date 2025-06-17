@@ -328,40 +328,6 @@ function App() {
     }
   };
 
-  const getCurrentDate = () => new Date().toISOString().split('T')[0];
-
-  return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
-      {/* Header */}
-      <header className="bg-white shadow-lg border-b-4 border-blue-600">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-20">
-          <div className="flex items-center space-x-4">
-            <img src="/Logo CONIN em design minimalista.png" alt="CONIN Logo" className="h-12 w-auto" />
-            <div>
-              <h1 className="text-2xl font-bold text-gray-900">Sistema RIPP</h1>
-              <p className="text-sm text-gray-600">Relatório de Inspeção no Processo / Plano de Inspeção</p>
-            </div>
-          </div>
-          <div className="flex items-center space-x-3">
-            <button
-              onClick={exportDocument}
-              className="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
-            >
-              <Download className="w-4 h-4 mr-2" /> Exportar
-            </button>
-            <button className="inline-flex items-center px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300">
-              <Save className="w-4 h-4 mr-2" /> Salvar
-            </button>
-          </div>
-        </div>
-      </header>
-
-      {/* Navigation Tabs */}
-      {/* ... restante do layout e funcionalidades já existentes ... */}
-
-    </div>
-  );
-}
   const updateInspectionItem = (id: string, field: keyof InspectionItem, value: any) => {
     setDocumentData(prev => ({
       ...prev,
