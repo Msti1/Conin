@@ -1,31 +1,5 @@
 import React, { useState } from 'react';
 import { FileText, Save, Download, Plus, Trash2, Calendar, User, MapPin, Settings, CheckCircle, XCircle, AlertTriangle, Minus, List } from 'lucide-react';
-import { Document, Packer, Paragraph, TextRun } from 'docx';
-import { saveAs } from 'file-saver';
-
-const exportAsDocx = async () => {
-  const doc = new Document({
-    sections: [{
-      properties: {},
-      children: [
-        new Paragraph({ children: [ new TextRun({ text: `RIPP – ${Document.obra}`, bold: true, size: 28 }) ] }),
-        new Paragraph(''),
-        new Paragraph({ children: [ new TextRun(`Obra: ${Document.obra}`) ] }),
-        new Paragraph({ children: [ new TextRun(`C.Custo: ${Document.cCusto}`) ] }),
-        // para cada item de inspeção:
-        ...Document.inspectionItems.map(item => 
-          new Paragraph({ children: [ new TextRun(`- ${item.parameter}: ${item.conforme ? 'Conforme' : item.naoConforme ? 'Não Conforme' : ''}`) ] })
-        ),
-        // etc.
-      ],
-    }],
-  });
-
-  // 2) Gera o blob e salva
-  const blob = await Packer.toBlob(doc);
-  saveAs(blob, `RIPP_${Document.obra}.docx`);
-};
-
 
 interface InspectionItem {
   id: string;
@@ -577,7 +551,7 @@ const exportDocument = () => {
                   <input
                     type="text"
                     value={documentData.obra}
-                    onChange={(e: { target: { value: any; }; }) => updateField('obra', e.target.value)}
+                    onChange={(e) => updateField('obra', e.target.value)}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
                     placeholder="Nome da obra"
                   />
