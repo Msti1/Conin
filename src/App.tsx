@@ -1,5 +1,31 @@
 import React, { useState } from 'react';
 import { FileText, Save, Download, Plus, Trash2, Calendar, User, MapPin, Settings, CheckCircle, XCircle, AlertTriangle, Minus, List } from 'lucide-react';
+import { Document, Packer, Paragraph, TextRun } from 'docx';
+import { saveAs } from 'file-saver';
+
+const exportAsDocx = async () => {
+  const doc = new Document({
+    sections: [{
+      properties: {},
+      children: [
+        new Paragraph({ children: [ new TextRun({ text: `RIPP – ${documentData.obra}`, bold: true, size: 28 }) ] }),
+        new Paragraph(''),
+        new Paragraph({ children: [ new TextRun(`Obra: ${documentData.obra}`) ] }),
+        new Paragraph({ children: [ new TextRun(`C.Custo: ${documentData.cCusto}`) ] }),
+        // para cada item de inspeção:
+        ...documentData.inspectionItems.map(item => 
+          new Paragraph({ children: [ new TextRun(`- ${item.parameter}: ${item.conforme ? 'Conforme' : item.naoConforme ? 'Não Conforme' : ''}`) ] })
+        ),
+        // etc.
+      ],
+    }],
+  });
+
+  // 2) Gera o blob e salva
+  const blob = await Packer.toBlob(doc);
+  saveAs(blob, `RIPP_${documentData.obra}.docx`);
+};
+
 
 interface InspectionItem {
   id: string;
