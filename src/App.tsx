@@ -8,12 +8,12 @@ const exportAsDocx = async () => {
     sections: [{
       properties: {},
       children: [
-        new Paragraph({ children: [ new TextRun({ text: `RIPP – ${documentData.obra}`, bold: true, size: 28 }) ] }),
+        new Paragraph({ children: [ new TextRun({ text: `RIPP – ${Document.obra}`, bold: true, size: 28 }) ] }),
         new Paragraph(''),
-        new Paragraph({ children: [ new TextRun(`Obra: ${documentData.obra}`) ] }),
-        new Paragraph({ children: [ new TextRun(`C.Custo: ${documentData.cCusto}`) ] }),
+        new Paragraph({ children: [ new TextRun(`Obra: ${Document.obra}`) ] }),
+        new Paragraph({ children: [ new TextRun(`C.Custo: ${Document.cCusto}`) ] }),
         // para cada item de inspeção:
-        ...documentData.inspectionItems.map(item => 
+        ...Document.inspectionItems.map(item => 
           new Paragraph({ children: [ new TextRun(`- ${item.parameter}: ${item.conforme ? 'Conforme' : item.naoConforme ? 'Não Conforme' : ''}`) ] })
         ),
         // etc.
@@ -23,7 +23,7 @@ const exportAsDocx = async () => {
 
   // 2) Gera o blob e salva
   const blob = await Packer.toBlob(doc);
-  saveAs(blob, `RIPP_${documentData.obra}.docx`);
+  saveAs(blob, `RIPP_${Document.obra}.docx`);
 };
 
 
@@ -577,7 +577,7 @@ const exportDocument = () => {
                   <input
                     type="text"
                     value={documentData.obra}
-                    onChange={(e) => updateField('obra', e.target.value)}
+                    onChange={(e: { target: { value: any; }; }) => updateField('obra', e.target.value)}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
                     placeholder="Nome da obra"
                   />
