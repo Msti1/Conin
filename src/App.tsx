@@ -438,30 +438,17 @@ function App() {
   };
 
 const exportDocument = () => {
-  // 1. Cria a instância do PDF
-  const { jsPDF } = window.jspdf; // ou diretamente importado
-  const doc = new jsPDF({
-    unit: 'mm',
-    format: 'a4',
-  });
-
-  // 2. Converte o objeto em string e "quebra" em linhas para não vazar da página
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF({ unit: 'mm', format: 'a4' });
   const jsonStr = JSON.stringify(documentData, null, 2);
   const margin = 10;
   const pageWidth = doc.internal.pageSize.getWidth() - margin * 2;
   const lines = doc.splitTextToSize(jsonStr, pageWidth);
-
-  // 3. Adiciona o texto ao PDF (começando na margem superior)
   doc.text(lines, margin, margin);
-
-  // 4. Gera um nome de arquivo parecido com o que você já montava
-  const defaultName = `RIPP_${documentData.obra || 'documento'}_${new Date()
-    .toISOString()
-    .slice(0, 10)}.pdf`;
-
-  // 5. Salva o arquivo
+  const defaultName = `RIPP_${documentData.obra || 'documento'}_${new Date().toISOString().slice(0,10)}.pdf`;
   doc.save(defaultName);
 };
+
   
   const getCurrentDate = () => {
     return new Date().toISOString().split('T')[0];
