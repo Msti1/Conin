@@ -632,53 +632,68 @@ const exportDocument = () => {
                 </div>
 
                <div>
-  <label htmlFor="itensIT" className="block text-sm font-medium text-gray-700 mb-2">
-    Itens da I.T
-  </label>
+  <label className="block text-sm font-medium text-gray-700 mb-2">Itens da I.T</label>
   <select
-    id="itensIT"
-    name="itensIT"
     value={documentData.itensIT}
     onChange={(e) => updateField('itensIT', e.target.value)}
     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
   >
     <option value="">Selecione um item</option>
-    <option value="IT 1.0 - DEMOLIÇÃO DE ALVENARIA SEM REAPROVEITAMENTO">
-      IT 1.0 - DEMOLIÇÃO DE ALVENARIA SEM REAPROVEITAMENTO
-    </option>
-    <option value="IT 2.0 - LIMPEZA DO TERRENO">
-      IT 2.0 - LIMPEZA DO TERRENO
-    </option>
-    <option value="IT 3.0 - EXECUÇÃO DE TERRAPLENAGEM">
-      IT 3.0 - EXECUÇÃO DE TERRAPLENAGEM
-    </option>
-    <option value="IT 4.0 - GABARITO DE OBRA">
-      IT 4.0 - GABARITO DE OBRA
-    </option>
-    <option value="IT 5.0 - ESCAVAÇÃO MANUAL OU MACÂNICA ATÉ 2,00 METROS DE PROFUNDIDADE">
-      IT 5.0 - ESCAVAÇÃO MANUAL OU MACÂNICA ATÉ 2,00 METROS DE PROFUNDIDADE
-    </option>
-    <option value="IT 6.0 - APILOAMENTO MANUAL OU MECÂNICO DE FUNDO DE VALA">
-      IT 6.0 - APILOAMENTO MANUAL OU MECÂNICO DE FUNDO DE VALA
-    </option>
-    <option value="IT 7.0 - CONFECÇÃO E MONTAGEM DE FÔRMA DE COMPENSADO RESINADO OU PLÁSTIFICADO">
-      IT 7.0 - CONFECÇÃO E MONTAGEM DE FÔRMA DE COMPENSADO RESINADO OU PLÁSTIFICADO
-    </option>
-    <option value="IT 8.0 - CONFECÇÃO E MONTAGEM DAS FORMAS COMUNS (TÁBUAS OU COMPENSADOS)">
-      IT 8.0 - CONFECÇÃO E MONTAGEM DAS FORMAS COMUNS (TÁBUAS OU COMPENSADOS)
-    </option>
-    <option value="IT 9.0 - CORTE, DOBRA E ARMAÇÃO DE FERRAGEM PARA CONCRETO ARMADO">
-      IT 9.0 - CORTE, DOBRA E ARMAÇÃO DE FERRAGEM PARA CONCRETO ARMADO
-    </option>
-    <option value="IT 10.0 - LANÇAMENTO DE CONCRETO">
-      IT 10.0 - LANÇAMENTO DE CONCRETO
-    </option>
-    <option value="IT 11.0 - DESFORMA (DESMONTAGEM DE FORMA)">
-      IT 11.0 - DESFORMA (DESMONTAGEM DE FORMA)
-    </option>
-    <option value="IT 12.0 - IMPERMEABILIZAÇÃO COM PINTURA DE EMULSÃO ASFÁLTICA">
-      IT 12.0 - IMPERMEABILIZAÇÃO COM PINTURA DE EMULSÃO ASFÁLTICA
-    </option>
+    <option value="IT 1.0 - DEMOLIÇÃO DE ALVENARIA SEM REAPROVEITAMENTO">IT 1.0 - DEMOLIÇÃO DE ALVENARIA SEM REAPROVEITAMENTO</option>
+    <option value="IT 2.0 - LIMPEZA DO TERRENO">IT 2.0 - LIMPEZA DO TERRENO</option>
+    <option value="IT 3.0 - EXECUÇÃO DE TERRAPLENAGEM">IT 3.0 - EXECUÇÃO DE TERRAPLENAGEM</option>
+    <option value="IT 4.0 - GABARITO DE OBRA">IT 4.0 - GABARITO DE OBRA</option>
+    <option value="IT 5.0 - ESCAVAÇÃO MANUAL OU MACÂNICA ATÉ 2,00 METROS DE PROFUNDIDADE">IT 5.0 - ESCAVAÇÃO MANUAL OU MACÂNICA ATÉ 2,00 METROS DE PROFUNDIDADE</option>
+    <option value="IT 6.0 - APILOAMENTO MANUAL OU MECÂNICO DE FUNDO DE VALA">IT 6.0 - APILOAMENTO MANUAL OU MECÂNICO DE FUNDO DE VALA</option>
+    <option value="IT 7.0 - CONFECÇÃO E MONTAGEM DE FÔRMA DE COMPENSADO RESINADO OU PLÁSTIFICADO">IT 7.0 - CONFECÇÃO E MONTAGEM DE FÔRMA DE COMPENSADO RESINADO OU PLÁSTIFICADO</option>
+    <option value="IT 8.0 - CONFECÇÃO E MONTAGEM DAS FORMAS COMUNS (TÁBUAS OU COMPENSADOS)">IT 8.0 - CONFECÇÃO E MONTAGEM DAS FORMAS COMUNS (TÁBUAS OU COMPENSADOS)</option>
+    <option value="IT 9.0 - CORTE, DOBRA E ARMAÇÃO DE FERRAGEM PARA CONCRETO ARMADO">IT 9.0 - CORTE, DOBRA E ARMAÇÃO DE FERRAGEM PARA CONCRETO ARMADO</option>
+    <option value="IT 10.0 - LANÇAMENTO DE CONCRETO">IT 1s0.0 - LANÇAMENTO DE CONCRETO</option>
+    <option value="IT 11.0 - DESFORMA (DESMONTAGEM DE FORMA)">IT 11.0 - DESFORMA (DESMONTAGEM DE FORMA)</option>
+    <option value="IT 12.0 - IMPERMEABILIZAÇÃO COM PINTURA DE EMULSÃO ASFÁLTICA">IT 12.0 - IMPERMEABILIZAÇÃO COM PINTURA DE EMULSÃO ASFÁLTICA</option>
+    <option value="IT 13.0 - ASSENTAMENTO DE TIJOLO OU BLOCO DE CONCRETO">IT 13.0 - ASSENTAMENTO DE TIJOLO OU BLOCO DE CONCRETO</option>
+    <option value="IT 14.0 - INSTALAÇÃO DE ELETRODUTOS EMBUTIDOS">IT 14.0 - INSTALAÇÃO DE ELETRODUTOS EMBUTIDOS</option>
+    <option value="IT 15.0 - LANÇAMENTO DE CONDUTORES ELÉTRICOS">IT 15.0 - LANÇAMENTO DE CONDUTORES ELÉTRICOS</option>
+    <option value="IT 16.0 - INSTALAÇÃO DE CAIXAS DE PASSAGEM">IT 16.0 - INSTALAÇÃO DE CAIXAS DE PASSAGEM</option>
+    <option value="IT 17.0 - EXECUÇÃO DE LAJE PRÉ-MOLDADA">IT 17.0 - EXECUÇÃO DE LAJE PRÉ-MOLDADA</option>
+    <option value="IT 18.0 - EXECUÇÃO DE CHAPISCO">IT 18.0 - EXECUÇÃO DE CHAPISCO</option>
+    <option value="IT 19.0 - EXECUÇÃO DE EMBOÇO">IT 19.0 - EXECUÇÃO DE EMBOÇO</option>
+    <option value="IT 20.0 - EXECUÇÃO DE REBOCO">IT 20.0 - EXECUÇÃO DE REBOCO</option>
+    <option value="IT 21.0 - APLICAÇÃO DE MASSA CORRIDA">IT 21.0 - APLICAÇÃO DE MASSA CORRIDA</option>
+    <option value="IT 22.0 - PINTURA A BASE DE LATEX PVA">IT 22.0 - PINTURA A BASE DE LATEX PVA</option>
+    <option value="IT 23.0 - INSTALAÇÃO DE PORTAS DE MADEIRA">IT 23.0 - INSTALAÇÃO DE PORTAS DE MADEIRA</option>
+    <option value="IT 24.0 - INSTALAÇÃO DE ESQUADRIAS DE ALUMÍNIO">IT 24.0 - INSTALAÇÃO DE ESQUADRIAS DE ALUMÍNIO</option>
+    <option value="IT 25.0 - EXECUÇÃO DE REVESTIMENTO CERÂMICO">IT 25.0 - EXECUÇÃO DE REVESTIMENTO CERÂMICO</option>
+    <option value="IT 26.0 - EXECUÇÃO DE CONTRAPISO">IT 26.0 - EXECUÇÃO DE CONTRAPISO</option>
+    <option value="IT 27.0 - IMPERMEABILIZAÇÃO COM MANTA ASFÁLTICA">IT 27.0 - IMPERMEABILIZAÇÃO COM MANTA ASFÁLTICA</option>
+    <option value="IT 28.0 - INSTALAÇÃO DE TORNEIRAS E LOUÇAS SANITÁRIAS">IT 28.0 - INSTALAÇÃO DE TORNEIRAS E LOUÇAS SANITÁRIAS</option>
+    <option value="IT 29.0 - INSTALAÇÃO DE FECHADURAS">IT 29.0 - INSTALAÇÃO DE FECHADURAS</option>
+    <option value="IT 30.0 - EXECUÇÃO DE CALÇADAS">IT 30.0 - EXECUÇÃO DE CALÇADAS</option>
+    <option value="IT 31.0 - INSTALAÇÃO DE QUADROS DE DISTRIBUIÇÃO">IT 31.0 - INSTALAÇÃO DE QUADROS DE DISTRIBUIÇÃO</option>
+    <option value="IT 32.0 - INSTALAÇÃO DE ILUMINAÇÃO">IT 32.0 - INSTALAÇÃO DE ILUMINAÇÃO</option>
+    <option value="IT 33.0 - INSTALAÇÃO DE TOMADAS">IT 33.0 - INSTALAÇÃO DE TOMADAS</option>
+    <option value="IT 34.0 - INSTALAÇÃO DE DISJUNTORES">IT 34.0 - INSTALAÇÃO DE DISJUNTORES</option>
+    <option value="IT 35.0 - MONTAGEM DE PAINÉIS ELÉTRICOS">IT 35.0 - MONTAGEM DE PAINÉIS ELÉTRICOS</option>
+    <option value="IT 36.0 - INSTALAÇÃO DE SISTEMA DE ATERRAMENTO">IT 36.0 - INSTALAÇÃO DE SISTEMA DE ATERRAMENTO</option>
+    <option value="IT 37.0 - INSTALAÇÃO DE PARA-RAIOS">IT 37.0 - INSTALAÇÃO DE PARA-RAIOS</option>
+    <option value="IT 38.0 - INSTALAÇÃO DE SISTEMA DE SPDA">IT 38.0 - INSTALAÇÃO DE SISTEMA DE SPDA</option>
+    <option value="IT 39.0 - INSTALAÇÃO DE SISTEMAS DE SEGURANÇA">IT 39.0 - INSTALAÇÃO DE SISTEMAS DE SEGURANÇA</option>
+    <option value="IT 40.0 - TESTE DE CONTINUIDADE ELÉTRICA">IT 40.0 - TESTE DE CONTINUIDADE ELÉTRICA</option>
+    <option value="IT 41.0 - TESTE DE ISOLAMENTO ELÉTRICO">IT 41.0 - TESTE DE ISOLAMENTO ELÉTRICO</option>
+    <option value="IT 42.0 - LIMPEZA FINAL DE OBRA">IT 42.0 - LIMPEZA FINAL DE OBRA</option>
+    <option value="IT 43.0 - INSTALAÇÃO DE EXTINTORES DE INCÊNDIO">IT 43.0 - INSTALAÇÃO DE EXTINTORES DE INCÊNDIO</option>
+    <option value="IT 44.0 - TREINAMENTO DE USO DE SISTEMAS ELÉTRICOS">IT 44.0 - TREINAMENTO DE USO DE SISTEMAS ELÉTRICOS</option>
+    <option value="IT 45.0 - INSPEÇÃO FINAL">IT 45.0 - INSPEÇÃO FINAL</option>
+    <option value="IT 46.0 - ENTREGA TÉCNICA">IT 46.0 - ENTREGA TÉCNICA</option>
+    <option value="IT 47.0 - VISTORIA DE CLIENTE">IT 47.0 - VISTORIA DE CLIENTE</option>
+    <option value="IT 48.0 - ADEQUAÇÃO PÓS-VISTORIA">IT 48.0 - ADEQUAÇÃO PÓS-VISTORIA</option>
+    <option value="IT 49.0 - MANUTENÇÃO PREVENTIVA">IT 49.0 - MANUTENÇÃO PREVENTIVA</option>
+    <option value="IT 50.0 - MANUTENÇÃO CORRETIVA">IT 50.0 - MANUTENÇÃO CORRETIVA</option>
+    <option value="IT 51.0 - AVALIAÇÃO FINAL DO SERVIÇO">IT 51.0 - AVALIAÇÃO FINAL DO SERVIÇO</option>
+    <option value="IT 52.0 - DESMOBILIZAÇÃO DE OBRA">IT 52.0 - DESMOBILIZAÇÃO DE OBRA</option>
+    <option value="IT 53.0 - RETIRADA DE ENTULHOS">IT 53.0 - RETIRADA DE ENTULHOS</option>
+    <option value="IT 54.0 - ENCERRAMENTO DE OBRA">IT 54.0 - ENCERRAMENTO DE OBRA</option>
+    <option value="IT 55.0 - REUNIÃO DE LIÇÕES APRENDIDAS">IT 55.0 - REUNIÃO DE LIÇÕES APRENDIDAS</option>
   </select>
 </div>
 
